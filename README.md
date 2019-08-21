@@ -8,7 +8,7 @@ Don't use this to manage application accounts.
 
 ## Usage
 
-Load the `mysql`, `aws`, and `random` providers, then source this repository.
+Load the `mysql`, `aws`, and `random` providers, then source this repository. You can check the [releases page](https://github.com/alexjurkiewicz/tf-mysql-user-aws/releases) to find the most recent version.
 
 The only required variable is `username`. Read `variables.tf` for documentation on all variables.
 
@@ -20,12 +20,12 @@ The only required variable is `username`. Read `variables.tf` for documentation 
 
   # Create read-only user
   module "alexj_readonly" {
-    source   = "github.com/alexjurkiewicz/tf-mysql-user-aws?ref=v1.0.0"
+    source   = "github.com/alexjurkiewicz/tf-mysql-user-aws?ref=xxx"
     username = "alexj_readonly"
   }
   # Create admin user in test only
   module "admin_test" {
-    source   = "github.com/alexjurkiewicz/tf-mysql-user-aws?ref=v1.0.0"
+    source   = "github.com/alexjurkiewicz/tf-mysql-user-aws?ref=xxx"
     username = "admin"
     grants   = ["SELECT", "INSERT", "UPDATE", "DELETE", "ALTER"]
     deploy   = terraform.workspace == "test" ? true : false
