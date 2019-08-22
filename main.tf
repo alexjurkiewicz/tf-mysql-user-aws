@@ -1,7 +1,8 @@
 resource "random_password" "password" {
   count = var.deploy == true ? 1 : 0
 
-  length = 32
+  length  = 32
+  special = false
 }
 
 resource "mysql_user" "user" {
