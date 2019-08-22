@@ -2,9 +2,9 @@ variable "username" {
   description = "Username to create."
 }
 
-variable "database" {
-  description = "Database to grant access to."
-  default     = "*"
+variable "databases" {
+  description = "Databases to grant access to."
+  default     = ["*"]
 }
 
 variable "host" {

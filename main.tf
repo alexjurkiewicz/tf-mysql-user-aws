@@ -13,11 +13,11 @@ resource "mysql_user" "user" {
 }
 
 resource "mysql_grant" "grant" {
-  count = var.deploy == true ? 1 : 0
+  count = var.deploy == true ? length(var.databases) : 0
 
   user       = mysql_user.user[0].user
   host       = var.host
-  database   = var.database
+  database   = var.databases[count.index]
   privileges = var.grants
 }
 
