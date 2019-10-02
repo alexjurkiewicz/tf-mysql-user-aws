@@ -25,7 +25,8 @@ resource "mysql_grant" "grant" {
 resource "aws_ssm_parameter" "param" {
   count = var.deploy == true ? 1 : 0
 
-  name  = "${var.ssm_prefix}/${mysql_user.user[0].user}/password"
-  type  = "String"
-  value = random_password.password[0].result
+  name        = "${var.ssm_prefix}/${mysql_user.user[0].user}/password"
+  description = "MySQL password for ${var.username}"
+  type        = "String"
+  value       = random_password.password[0].result
 }
