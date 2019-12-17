@@ -40,13 +40,13 @@ The only required variable is `username`. Read `variables.tf` for documentation 
 
 ## FAQ
 
-**Q: Why not use [IAM Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.html)?**
+**Q: Why not use [IAM Authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.Connecting.AWSCLI.html) instead of passwords?**
 
-* A: IAM Authentication is technically challenging. Users need an IAM account and to run a command-line tool.
+* A: IAM Authentication is great for machines. For users it's technically challenging. They need an AWS IAM account and to run a command-line tool for temporary credentials every connection.
 
-**Q: Why not use [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/)?**
+**Q: Why not use [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/)? instead of SSM parameters**
 
-* A: Secrets Manager is great if you want automatic credential rotation. But we don't.
+* A: Secrets Manager is great if you want automatic credential rotation and KMS encryption. It costs more.
 
 **Q: Why isn't this module good for managing application accounts?**
 
