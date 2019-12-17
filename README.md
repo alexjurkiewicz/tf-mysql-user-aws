@@ -30,6 +30,12 @@ The only required variable is `username`. Read `variables.tf` for documentation 
     grants   = ["SELECT", "INSERT", "UPDATE", "DELETE", "ALTER"]
     deploy   = terraform.workspace == "test" ? true : false
   }
+  # Give access to certain tables only
+  module "product1_readonly" {
+    source   = "github.com/alexjurkiewicz/tf-mysql-user-aws?ref=xxx"
+    username = "product1"
+    objects  = ["product1.*", "master.product1"]
+  }
 ```
 
 ## FAQ
