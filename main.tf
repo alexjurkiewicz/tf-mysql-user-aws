@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    aws    = ">= 2.24"
+    random = ">= 2.2"
+    mysql  = ">= 1.7"
+  }
+}
+
 resource "random_password" "password" {
   count = var.deploy == true ? 1 : 0
 
