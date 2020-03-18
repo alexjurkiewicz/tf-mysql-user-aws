@@ -6,6 +6,10 @@ terraform {
   }
 }
 
+terraform {
+  experiments = [variable_validation]
+}
+
 resource "random_password" "password" {
   count = var.deploy == true ? 1 : 0
 
