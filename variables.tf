@@ -2,7 +2,7 @@ variable "username" {
   description = "Username to create."
 
   validation {
-    condition     = length(var.username) > 16
+    condition     = length(var.username) <= 16
     error_message = "The username cannot be more than 16 characters."
   }
 }
