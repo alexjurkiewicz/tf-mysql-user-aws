@@ -20,7 +20,7 @@ The only required variable is `username`. Read `variables.tf` for documentation 
 
   # Create read-only user
   module "alexj_readonly" {
-    source   = "github.com/alexjurkiewicz/tf-mysql-user-aws?ref=xxx"
+    source   = "github.com/alexjurkiewicz/tf-mysql-user-aws?ref=master"
     username = "alexj_readonly"
   }
   # Create admin user in test only
