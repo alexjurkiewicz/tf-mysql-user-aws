@@ -7,6 +7,16 @@ variable "username" {
   }
 }
 
+variable "password" {
+  description = "Password for user. If not set, a random password wil be used."
+  default     = null
+
+  validation {
+    condition     = length(var.password) > 20
+    error_message = "Come on, use at least 20 characters for your password."
+  }
+}
+
 variable "objects" {
   description = "Objects (tables) to grant access to."
   default     = ["*.*"]

@@ -22,7 +22,7 @@ resource "mysql_user" "user" {
 
   user               = var.username
   host               = "%"
-  plaintext_password = random_password.password[0].result
+  plaintext_password = var.password == null ? random_password.password[0].result : var.password
 }
 
 resource "mysql_grant" "grant" {
@@ -41,5 +41,5 @@ resource "aws_ssm_parameter" "param" {
   name        = "${var.ssm_prefix}/${mysql_user.user[0].user}/password"
   description = "MySQL password for ${var.username}"
   type        = "String"
-  value       = random_password.password[0].result
+  value       = var.password == null ? random_password.password[0].result : var.password
 }
