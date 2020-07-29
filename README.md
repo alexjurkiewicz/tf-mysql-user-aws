@@ -1,6 +1,6 @@
 # tf-mysql-user-aws
 
-This module creates a MySQL user account and publishes the password as an AWS SSM Parameter Store item.
+This module creates a MySQL user account and grants.
 
 Use this to manage the accounts of real people in a RDS MySQL / Aurora database.
 
@@ -8,7 +8,7 @@ Don't use this to manage application accounts.
 
 ## Usage
 
-Load the `mysql`, `aws`, and `random` providers, then source this repository. You can check the [releases page](https://github.com/alexjurkiewicz/tf-mysql-user-aws/releases) to find the most recent version.
+Load the `mysql`, `aws`, and `random` providers, then source this repository. You can check our [releases page](https://github.com/alexjurkiewicz/tf-mysql-user-aws/releases) to find the most recent version available.
 
 The only required variable is `username`. Read `variables.tf` for documentation on all variables.
 
