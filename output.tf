@@ -5,6 +5,6 @@ output "ssm_parameter" {
 
 output "password" {
   description = "Generated password for the user."
-  value       = random_password.password[0].result
+  value       = var.deploy == true ? random_password.password[0].result : ""
   sensitive   = true
 }
