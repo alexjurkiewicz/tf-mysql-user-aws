@@ -25,10 +25,10 @@ variable "grants" {
 
 variable "ssm_prefix" {
   description = <<EOT
-    User's password is automatically generated and added to AWS SSM Parameter
-    Store with the path "$ssm_prefix/$username/password".
+    If set, the user's password is automatically generated and added to AWS SSM
+    Parameter Store with the path "$ssm_prefix/$username/password".
   EOT
-  default     = "/db"
+  default     = null
 }
 
 variable "deploy" {

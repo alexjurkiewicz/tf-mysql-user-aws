@@ -36,7 +36,7 @@ resource "mysql_grant" "grant" {
 }
 
 resource "aws_ssm_parameter" "param" {
-  count = var.deploy == true ? 1 : 0
+  count = (var.deploy == true && var.ssm_prefix != null) ? 1 : 0
 
   name        = "${var.ssm_prefix}/${mysql_user.user[0].user}/password"
   description = "MySQL password for ${var.username}"
