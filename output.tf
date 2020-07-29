@@ -3,8 +3,8 @@ output "ssm_parameter" {
   value       = (var.deploy == true && var.ssm_prefix != null) ? aws_ssm_parameter.param[0].name : null
 }
 
-output "password" {
-  description = "Generated password for the user."
-  value       = random_password.password.result
-  sensitive   = true
-}
+# output "password" {
+#   description = "Generated password for the user."
+#   value       = random_password.password.result
+#   sensitive   = true
+# }
