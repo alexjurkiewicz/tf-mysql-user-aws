@@ -11,8 +11,6 @@ terraform {
 }
 
 resource "random_password" "password" {
-  count = var.deploy == true ? 1 : 0
-
   length  = 32
   special = false
 }
@@ -22,7 +20,7 @@ resource "mysql_user" "user" {
 
   user               = var.username
   host               = "%"
-  plaintext_password = random_password.password[0].result
+  plaintext_password = random_password.password.result
 }
 
 resource "mysql_grant" "grant" {
@@ -41,5 +39,5 @@ resource "aws_ssm_parameter" "param" {
   name        = "${var.ssm_prefix}/${mysql_user.user[0].user}/password"
   description = "MySQL password for ${var.username}"
   type        = "String"
-  value       = random_password.password[0].result
+  value       = random_password.password.result
 }
