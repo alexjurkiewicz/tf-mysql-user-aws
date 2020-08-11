@@ -1,13 +1,18 @@
 terraform {
   required_providers {
-    aws    = ">= 2.24"
-    random = ">= 2.2"
-    mysql  = ">= 1.7"
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 2.24"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = ">= 2.2"
+    }
+    mysql = {
+      source  = "terraform-providers/mysql"
+      version = ">= 1.7"
+    }
   }
-}
-
-terraform {
-  experiments = [variable_validation]
 }
 
 resource "random_password" "password" {
